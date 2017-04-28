@@ -11,6 +11,27 @@ sudo docker cp $container_id:/python-android27/python_extras_27.zip .
 
 -------
 
+Current progress:
+1. Able to generate a minimum PIE enabled python_27.zip, meaning when install on android, we can bring up the interactive python via adb, but lack some python libs to start Kolibri.
+2. Not able to generate python_extras_27.zip yet, still working on it.
+
+-------
+
+# Tips:
+
+* how to bring up interactive python via adb:
+```
+cd <path_to_your_sdk>/platform-tools
+./adb shell
+run-as com.android.kolibri27
+export PYTHONHOME=/data/data/com.android.kolibri27/files/python
+export PYTHONPATH=/sdcard/com.android.kolibri27/extras/python:/data/data/com.android.kolibri27/files/python/lib/python2.7/lib-dynload:/data/data/com.android.kolibri27/files/python/lib/python2.7
+export PATH=$PYTHONHOME/bin:$PATH
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/data/data/com.android.kolibri27/files/python/lib:/data/data/com.android.kolibri27/files/python/lib/python2.7/lib-dynload
+```
+
+-------
+
 Reference:
     http://code.google.com/p/python-for-android/
 
