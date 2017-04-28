@@ -11,12 +11,6 @@ sudo docker cp $container_id:/python-android27/python_extras_27.zip .
 
 -------
 
-Current progress:
-1. Able to generate a minimum PIE enabled python_27.zip, meaning when install on android, we can bring up the interactive python via adb, but lack some python libs to start Kolibri.
-2. Not able to generate python_extras_27.zip yet, still working on it.
-
--------
-
 # Tips:
 
 * how to bring up interactive python via adb:
@@ -30,6 +24,18 @@ export PATH=$PYTHONHOME/bin:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/data/data/com.android.kolibri27/files/python/lib:/data/data/com.android.kolibri27/files/python/lib/python2.7/lib-dynload
 python
 ```
+
+* To check if a file is PIE enabled in Ubuntu:
+```
+sudo apt-get install hardening-includes
+hardening-check <file path>
+```
+
+-------
+
+# Current progress:
+1. Able to generate a minimum PIE enabled python_27.zip, meaning when install on android, we can bring up the interactive python via adb, but lack some python libs to start Kolibri.
+2. Not able to generate python_extras_27.zip yet, still working on it.
 
 -------
 
@@ -60,7 +66,7 @@ Reference:
 
 -------
 
-# Eli's journey
+# Eli's journey(use as referenece, no need to follow exactly)
 
 1. I installed the following packages:
     ```
@@ -83,13 +89,10 @@ Reference:
 10. Make `openssl/AndroidManifest.xml` minSdkVersion=24
 11. In order to compile openssl successfully and generate `libcrypt.so`, `libcrypto.so`, `libsqlite3.so`, `libssl.so` that are required to run python on android, we need to modify `android-ndk-r13b/build/core/default-build-commands/mk`, find around line 113 and change to `TARGET_LDLIBS:= -lz -lc -lm`. After we got thoese share libraries, restore the change to `TARGET_LDLIBS:= -lc -lm`, and continue to build the python. It's a bit tricky to get both python and these shared libraries built at one shoot. Sometimes you may want to prepare two envirenment to build them separately.
 
-
-Note: In Ubuntu, `sudo apt-get install hardening-includes` and use its `hardening-check <file path>` to check position independent code.
-
 -------
 
 
-current status:
+Upstream status(the current progress of the upstream):
 
     Python build finished, but the necessary bits to build these modules were not found:
 
