@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-export ROOTDIR=$(dirname $(readlink -f $0))
+export ROOTDIR="/python-android27"
 export HOSTPYTHON=$ROOTDIR/hostpython
 export HOSTPGEN=$ROOTDIR/hostpgen
 

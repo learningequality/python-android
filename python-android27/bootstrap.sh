@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-ROOTDIR=$(dirname $(readlink -f $0))
+ROOTDIR="/python-android27"
 
 if [ ! -e 'Python-2.7.2.tgz' ]; then
     wget http://www.python.org/ftp/python/2.7.2/Python-2.7.2.tgz
