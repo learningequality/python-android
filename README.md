@@ -92,6 +92,45 @@ Reference:
 -------
 
 
+Current status(We need to get the status as close as possible to the upstream status):
+
+    Python build finished, but the necessary bits to build these modules were not found:
+
+    _bsddb             _curses            _curses_panel   
+    _tkinter           bsddb185           bz2             
+    dbm                dl                 gdbm            
+    imageop            linuxaudiodev      nis             
+    ossaudiodev        readline           sunaudiodev     
+
+    To find the necessary bits, look in setup.py in detect_modules() for the module's name.
+
+
+    Failed to build these modules:
+
+    _bisect            _codecs_cn         _codecs_hk      
+    _codecs_iso2022    _codecs_jp         _codecs_kr      
+    _codecs_tw         _collections       _csv            
+    _ctypes            _ctypes_test       _elementtree    
+    _functools         _hashlib           _heapq          
+    _hotshot           _io                _json           
+    _locale            _lsprof            _multibytecodec 
+    _multiprocessing   _random            _sha256         
+    _sha512            _socket            _sqlite3        
+    _ssl               _struct            _testcapi       
+    array              audioop            binascii        
+    cmath              cPickle            crypt           
+    cStringIO          datetime           fcntl           
+    future_builtins    grp                itertools       
+    math               mmap               operator        
+    parser             pyexpat            resource        
+    select             spwd               strop           
+    syslog             termios            time            
+    unicodedata        zlib    
+
+
+-------
+
+
 Upstream status(the current progress of the upstream):
 
     Python build finished, but the necessary bits to build these modules were not found:
