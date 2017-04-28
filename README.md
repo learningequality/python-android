@@ -9,6 +9,8 @@ sudo docker cp $container_id:/python-android27/python_27.zip .
 sudo docker cp $container_id:/python-android27/python_extras_27.zip .
 ```
 
+To generate non-PIE python build, please reference [the upstream](https://github.com/nonameentername/python-android) flag settings.
+
 -------
 
 # Tips:
