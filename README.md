@@ -28,6 +28,7 @@ export PYTHONHOME=/data/data/com.android.kolibri27/files/python
 export PYTHONPATH=/sdcard/com.android.kolibri27/extras/python:/data/data/com.android.kolibri27/files/python/lib/python2.7/lib-dynload:/data/data/com.android.kolibri27/files/python/lib/python2.7
 export PATH=$PYTHONHOME/bin:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/data/data/com.android.kolibri27/files/python/lib:/data/data/com.android.kolibri27/files/python/lib/python2.7/lib-dynload
+python
 ```
 
 -------
