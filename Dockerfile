@@ -28,8 +28,6 @@ RUN tar -xvzf android-sdk_r24.4.1-linux.tgz
 # 1. run bootstrap.sh
 WORKDIR /python-android27
 RUN /python-android27/bootstrap.sh
-# 2. install python packages 
-RUN /python-android27/pip_install.sh
 
 # modify source files
 RUN sed -i '6s@.*@<uses-sdk android:minSdkVersion="24" />@' /python-android27/openssl/AndroidManifest.xml
@@ -38,8 +36,8 @@ RUN sed -i '113s@.*@TARGET_LDLIBS := -lz -lc -lm@' /android-ndk-r13b/build/core/
 # this is for debuging purpose, comment out on production.
 RUN apt-get install -y hardening-includes
 
-# 3. run build.sh
+# 2. run build.sh
 RUN /python-android27/build.sh
 
-# 4. run package.sh to zip compiled python into python_27.zip and python_extras_27.zip
+# 3. run package.sh to zip compiled python into python_27.zip and python_extras_27.zip
 RUN /python-android27/package.sh
