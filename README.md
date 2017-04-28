@@ -1,6 +1,16 @@
 # python-android
 python build for kolibri-android-wrapper
 
+To generete the python build `python_27.zip` and `python_extras_27.zip`, run the following commands:
+```
+sudo docker build -t androidpython .
+container_id=`sudo docker create androidpython`
+sudo docker cp $container_id:/python-android27/python_27.zip . 
+sudo docker cp $container_id:/python-android27/python_extras_27.zip .
+```
+
+-------
+
 Reference:
     http://code.google.com/p/python-for-android/
 
